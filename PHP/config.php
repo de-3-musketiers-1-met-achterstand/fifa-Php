@@ -1,7 +1,7 @@
 <?php
 
 $dbhost = 'localhost';
-$dbname = 'recipe_app';
+$dbname = 'tournament_planner';
 $dbuser = 'root';
 $dbpass = '';
 
