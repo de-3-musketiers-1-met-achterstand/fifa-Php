@@ -13,6 +13,32 @@ if ($_POST['type'] === 'register') {
         ':password'  => $hashedpwd
     ]);
 
-    header('location: index.php?success=register');
+    header('location: index.php');
+    exit;
+}
+if ( $_POST['type'] === 'login' ) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $sql = "SELECT * FROM users WHERE username=:username";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':username'     => $username
+    ]);
+    $result = $prepare->fetch();
+
+
+
+
+    if(password_verify($password , $result['password'])){
+        $_SESSION['id'] = $result['id'];
+
+    }
+    else{
+
+
+
+    }
+    header('location: index.php');
     exit;
 }
