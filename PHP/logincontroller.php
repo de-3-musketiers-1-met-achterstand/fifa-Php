@@ -1,16 +1,19 @@
 <?php
 require 'config.php';
-
+if ($_SERVER['REQUEST_METHOD'] !== 'POST' ) {
+    header('location: index.php?error=wrongpage');
+    exit;
+}
 if ($_POST['type'] === 'register') {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
+
 
     $sql = "INSERT INTO users(username ,password) VALUES( :username , :password)";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':username'     => $username,
-        ':password'  => $hashedpwd
+        ':password'  => $password
     ]);
 
     header('location: index.php');
@@ -30,15 +33,10 @@ if ( $_POST['type'] === 'login' ) {
 
 
 
-    if(password_verify($password , $result['password'])){
-        $_SESSION['id'] = $result['id'];
+    if($password == $result['password']){
+        $_SESSION['userid'] = $result['userid'];
 
     }
-    else{
-
-
-
-    }
-    header('location: index.php');
+    header('location: index.php?login=sucess');
     exit;
 }
