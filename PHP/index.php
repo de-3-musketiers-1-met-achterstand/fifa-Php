@@ -1,3 +1,6 @@
+<?php
+require 'logincontroller.php';
+?>
 <!doctype html>
 <html lang="en">
 <head>
