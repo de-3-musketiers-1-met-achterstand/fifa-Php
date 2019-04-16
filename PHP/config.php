@@ -12,4 +12,4 @@ $db = new PDO("mysql:host=$dbhost;dbname=$dbname",
 $db->setAttribute(PDO::ATTR_ERRMODE,
     PDO::ERRMODE_EXCEPTION
 );
-session_start();
+

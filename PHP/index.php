@@ -1,5 +1,5 @@
 <?php
-require 'logincontroller.php';
+require 'header.php'
 ?>
 <!doctype html>
 <html lang="en">
