@@ -5,6 +5,7 @@ $dbname = 'tournament_planner';
 $dbuser = 'root';
 $dbpass = '';
 
+
 $db = new PDO("mysql:host=$dbhost;dbname=$dbname",
     $dbuser,
     $dbpass
