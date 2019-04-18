@@ -33,7 +33,7 @@ if ( $_POST['type'] === 'login' ) {
 
 
 
-    if($password == $result['password']){
+    if(password_verify($password, $result['password'])){
         $_SESSION['userid'] = $result['userid'];
 
     }
