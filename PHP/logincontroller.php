@@ -37,6 +37,11 @@ if ( $_POST['type'] === 'login' ) {
         $_SESSION['userid'] = $result['userid'];
 
     }
+    else{
+        $message = "Wachtwoord komt nier overeen!";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        exit;
+    }
     header('location: index.php');
     exit;
 }
