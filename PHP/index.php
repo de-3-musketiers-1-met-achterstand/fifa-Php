@@ -18,7 +18,7 @@ require 'header.php'
                 echo "<p>Please <a href='register.php'>Register</a> or <a href='login.php'>Login</a> before using this website</p>";
             }
             else{
-                echo "you are logged in";
+                echo "<p>You are logged in, do you want to <a href='logout.php'>log out?</a></p>";
             }?>
 </body>
 </html>
