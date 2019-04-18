@@ -19,6 +19,7 @@ require 'header.php'
             }
             else{
                 echo "<p>You are logged in, do you want to <a href='logout.php'>log out?</a></p>";
+
             }?>
 </body>
 </html>
