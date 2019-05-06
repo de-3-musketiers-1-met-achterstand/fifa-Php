@@ -47,6 +47,15 @@ if ( $_POST['type'] === 'login' ) {
 }
 if ( $_POST['type'] === 'forgotpass' ) {
     $username = $_POST['username'];
+    $sql = "SELECT password FROM users WHERE username=:username";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':username' => $username
+    ]);
+    $result = $prepare->fetchColumn();
+
+    header("location: forgotpass.php?forgotpass=$result");
+}
 
 if ($_POST['type'] == 'createteam') {
     $teamname = $_POST['teamname'];
@@ -63,13 +72,4 @@ if ($_POST['type'] == 'createteam') {
 
     header("location: index.php?msg=$msg");
     exit;
-}
-    $sql = "SELECT password FROM users WHERE username=:username";
-    $prepare = $db->prepare($sql);
-    $prepare->execute([
-        ':username' => $username
-    ]);
-    $result = $prepare->fetchColumn();
-
-    header("location: forgotpass.php?forgotpass=$result");
 }
