@@ -13,4 +13,5 @@
 
     <input type="submit" value="login">
 </form>
-<a href="">Forgot Password</a>
+<a href="index.php">Back to homepage</a>
+<a href="forgotpass.php">Forgot Password</a>

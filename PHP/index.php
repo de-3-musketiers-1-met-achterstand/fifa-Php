@@ -11,10 +11,11 @@ require 'header.php'
     <title>Document</title>
 </head>
 <body>
-<a href="register.php">Register here</a>
-<a href="login.php">login  here</a>
+
 
 <?php if (!isset($_SESSION['userid'])) {
+                echo "<a href=register.php>Register here</a>";
+                echo "<a href=login.php>login  here</a>";
                 echo "<p>Please <a href='register.php'>Register</a> or <a href='login.php'>Login</a> before using this website</p>";
             }
             else{

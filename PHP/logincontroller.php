@@ -38,10 +38,22 @@ if ( $_POST['type'] === 'login' ) {
 
     }
     else{
-        $message = "Wachtwoord komt nier overeen!";
+        $message = "Wachtwoord komt niet overeen!";
         echo "<script type='text/javascript'>alert('$message');</script>";
         exit;
     }
     header('location: index.php');
     exit;
+}
+if ( $_POST['type'] === 'forgotpass' ) {
+    $username = $_POST['username'];
+
+    $sql = "SELECT password FROM users WHERE username=:username";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':username' => $username
+    ]);
+    $result = $prepare->fetchColumn();
+
+    header("location: forgotpass.php?forgotpass=$result");
 }
