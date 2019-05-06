@@ -21,6 +21,7 @@ require 'header.php'
             else{
                 echo "<p>You are logged in, do you want to <a href='logout.php'>log out?</a></p>";
 
+                echo "<p>You can create a new team <a href='createteam.php'>here!</a></p>";
             }?>
 </body>
 </html>

@@ -48,6 +48,22 @@ if ( $_POST['type'] === 'login' ) {
 if ( $_POST['type'] === 'forgotpass' ) {
     $username = $_POST['username'];
 
+if ($_POST['type'] == 'createteam') {
+    $teamname = $_POST['teamname'];
+    $creatorid = $_SESSION['userid'];
+
+    $sql = "INSERT INTO teams (teamname, creatorid) VALUES (:teamname, :creatorid)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':teamname' => $teamname,
+        ':creatorid' => $creatorid
+    ]);
+
+    $msg = "Team is succesvol aangemaakt!";
+
+    header("location: index.php?msg=$msg");
+    exit;
+}
     $sql = "SELECT password FROM users WHERE username=:username";
     $prepare = $db->prepare($sql);
     $prepare->execute([
