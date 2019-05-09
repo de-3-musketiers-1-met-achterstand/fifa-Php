@@ -12,7 +12,7 @@
 
 .header .football-header{
     width: 100%;
-    height: 175px;
+    height: 200px;
     opacity: 0.8;
 }
 
@@ -37,7 +37,7 @@
 
 .footer .football-footer{
     width: 100%;
-    height: 200px;
+    height: 250px;
     opacity: 0.8;
 }
 
@@ -58,6 +58,7 @@
     right: 8px;
     text-decoration-line: underline;
     font-size: 14px;
+    color: white;
 }
 
 /* ====== LOGIN ====== */
@@ -97,5 +98,22 @@
 .login-page .button:hover {
     transition: 0.7s;
     box-shadow: none;
+}
+
+/* ====== INDEX ====== */
+
+.homepage-title {
+    font-size: 200%;
+}
+
+.homepage-summary {
+    font-size: 150%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.teams-title {
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 

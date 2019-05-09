@@ -6,7 +6,7 @@ require 'header.php';
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
 
-    <input type="submit" value="ForgotPass">
+    <input type="submit" value="Forgot">
 </form>
 <?php
 if(isset ($_GET['forgotpass'])) {
@@ -16,7 +16,7 @@ if(isset ($_GET['forgotpass'])) {
 
     }}
 ?>
-<a href="login.php">Back to login</a>
+<a href="login.php">Terug naar Login</a>
 <?php
 require 'footer.php';
 ?>

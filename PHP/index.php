@@ -11,16 +11,31 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
 
 <body>
+<div class="container">
+    <div class="homepage-title">
+        <h1>Voetbal Toernooi</h1>
+    </div>
+    <div class="homepage-summary">
+        <p>U kunt hier één toernooi volgen tussen meerdere teams. <br>
+        De mogelijkheid is er ook om teams aan te maken, resultaten krijg je ook. <br>
+        Maar de resultaten krijg je pas wanneer je een account heb en ingelogt bent. <br>
+        Dus log snel in!</p>
+    </div>
+
+
 <?php if (!isset($_SESSION['userid'])) {
-    echo "<p>Please <a href='register.php'>Register</a> or <a href='login.php'>Login</a> before using this website</p>";
+    echo "<p>Alsjeblieft <a href='register.php'>Registreer</a> of <a href='login.php'>Login</a> voor het gebruik van de website!</p>";
 }
 else{
-    echo "<p>You are logged in, do you want to <a href='logout.php'>log out?</a></p>";
+    echo "<p>Je bent ingelogd, wil je <a href='logout.php'>uitloggen?</a></p>";
 
-    echo "<p>You can create a new team <a href='createteam.php'>here!</a></p>";
+    echo "<p>Je kan een team creëren, <a href='createteam.php'>hier!</a></p>";
     ?>
 
-    <h1>Teams</h1>
+    <div class="teams-title">
+        <h1>Teams</h1>
+    </div>
+    <div class="teams-list">
     <ul>
         <?php
         foreach ($teams as $team) {
@@ -28,10 +43,12 @@ else{
         }
         ?>
     </ul>
+</div>
 
     <?php
 }
 ?>
+</div>
 </body>
 <?php
 require 'footer.php';
