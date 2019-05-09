@@ -88,3 +88,20 @@ if ($_POST['type'] === 'delete') {
     header("location: index.php?msg=$msg");
     exit;
 }
+
+if ($_POST['type'] === 'edit') {
+    $teamname = $_POST['teamname'];
+    $id = $_GET['id'];
+
+    $sql = "UPDATE teams SET teamname= :teamname WHERE teamid= :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':teamname' => $teamname,
+        ':id' => $id
+    ]);
+
+    $msg = "Team naam is gewijzigd!";
+
+    header("location: index.php?msg=$msg");
+    exit;
+}

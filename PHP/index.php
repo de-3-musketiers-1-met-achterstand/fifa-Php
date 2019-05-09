@@ -5,6 +5,13 @@ $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
+$sql = "SELECT * FROM teams WHERE creatorid= :id";
+$query = $db->prepare($sql);
+$query->execute([
+    ':id' => $_SESSION['userid']
+]);
+
+$ownTeams = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
@@ -44,6 +51,16 @@ else{
         ?>
     </ul>
 </div>
+
+    <h1>Own Teams</h1>
+    <P>You can edit your teams here by clicking on the team you want to edit</P>
+    <ul>
+        <?php
+        foreach ($ownTeams as $team) {
+            echo "<li><a href='editteam.php?id=${team['teamid']}'>${team['teamname']}</a></li>";
+        }
+        ?>
+    </ul>
 
     <?php
 }
