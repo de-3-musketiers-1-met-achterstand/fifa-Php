@@ -5,6 +5,7 @@ $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
 
+
 ?>
 
 
@@ -23,7 +24,7 @@ else{
     <ul>
         <?php
         foreach ($teams as $team) {
-            echo "<li>${team['teamname']}</li>";
+            echo "<li><a href='detailteam.php?id=${team['teamid']}'>${team['teamname']}</a></li>";
         }
         ?>
     </ul>

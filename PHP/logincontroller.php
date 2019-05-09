@@ -36,7 +36,7 @@ if ( $_POST['type'] === 'login' ) {
     if(password_verify($password, $result['password'])){
         session_start();
         $_SESSION['userid'] = $result['userid'];
-
+        $_SESSION['isAdmin'] = $result['admin'];
     }
     else{
         $message = "Wachtwoord komt niet overeen!";
@@ -58,7 +58,7 @@ if ( $_POST['type'] === 'forgotpass' ) {
     header("location: forgotpass.php?forgotpass=$result");
 }
 
-if ($_POST['type'] == 'createteam') {
+if ($_POST['type'] === 'createteam') {
     $teamname = $_POST['teamname'];
     $creatorid = $_SESSION['userid'];
 
@@ -70,6 +70,20 @@ if ($_POST['type'] == 'createteam') {
     ]);
 
     $msg = "Team is succesvol aangemaakt!";
+
+    header("location: index.php?msg=$msg");
+    exit;
+}
+
+if ($_POST['type'] === 'delete') {
+    $id = $_GET['id'];
+    $sql = "DELETE from teams WHERE teamid= :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id
+    ]);
+
+    $msg = "Team is succesvol verwijderd!";
 
     header("location: index.php?msg=$msg");
     exit;
