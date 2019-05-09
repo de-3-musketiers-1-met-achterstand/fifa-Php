@@ -34,6 +34,7 @@ if ( $_POST['type'] === 'login' ) {
 
 
     if(password_verify($password, $result['password'])){
+        session_start();
         $_SESSION['userid'] = $result['userid'];
 
     }

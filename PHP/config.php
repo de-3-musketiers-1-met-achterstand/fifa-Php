@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_NOTICE);
 session_start();
 $dbhost = 'localhost';
 $dbname = 'tournament_planner';

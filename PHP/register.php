@@ -1,7 +1,6 @@
 <?php
+require 'header.php';
 ?>
-
-
 <form action="logincontroller.php" method="post" >
     <input type="hidden" name="type" value="register">
     <div class="form-group">
@@ -18,3 +17,6 @@
 
 
     </form>
+<?php
+require 'footer.php';
+?>

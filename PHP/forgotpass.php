@@ -1,3 +1,6 @@
+<?php
+require 'header.php';
+?>
 <form action="logincontroller.php" method="post">
     <input type="hidden" name="type" value="forgotpass">
     <label for="username">Username</label>
@@ -14,3 +17,6 @@ if(isset ($_GET['forgotpass'])) {
     }}
 ?>
 <a href="login.php">Back to login</a>
+<?php
+require 'footer.php';
+?>

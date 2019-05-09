@@ -1,7 +1,7 @@
 <?php require 'config.php'; ?>
 <div class="footer">
     <div class="container">
-        <img src="img/voetbal-footer-derbystar.jpg" class="football-footer" alt="footer image">
+        <img src="../images/voetbal-footer-derbystar.jpg" class="football-footer" alt="footer image">
         <div class="designers">
             <h3>Designers</h3>
             <p>Dani Kools</p>
