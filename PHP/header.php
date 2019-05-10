@@ -19,8 +19,20 @@ require 'config.php';
                 <img src="../images/header-voetbal.jpg" alt="header image" class="football-header">
                 <div class="menu">
                     <a href="index.php">Home</a>
+                    <?php
+                    if ($_SESSION['userid']) {
+                        ?>
+                    <a href="logout.php">Log out</a>
+                    <?php
+                    }
+                    else{
+                        ?>
                     <a href="login.php">Login</a>
                     <a href="register.php">Create Account</a>
+                    <?php
+                    }
+                    ?>
+
                 </div>
             </div>
         </div>
