@@ -8,12 +8,20 @@ if ($_POST['type'] === 'register') {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
+    $email = $_POST['email'];
 
-    $sql = "INSERT INTO users(username ,password) VALUES( :username , :password)";
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $message = "Geen geldig email adres!";
+        echo "<script type='text/javascript'>alert('$message');</script>";
+        exit;
+    }
+
+    $sql = "INSERT INTO users(username ,password, email) VALUES( :username , :password , :email)";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':username'     => $username,
-        ':password'  => $hashedpwd
+        ':password'  => $hashedpwd,
+        ':email' => $email
     ]);
 
     header('location: index.php');
