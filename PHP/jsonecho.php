@@ -6,11 +6,13 @@
  * Time: 10:28
  */
 
-require 'header.php';
+require 'config.php';
 
 $sql = "SELECT * FROM teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+
+header('Content-Type: application/json');
 
 echo json_encode($teams);
 
