@@ -52,8 +52,8 @@ else{
     </ul>
 </div>
 
-    <h1>Own Teams</h1>
-    <P>You can edit your teams here by clicking on the team you want to edit</P>
+    <h1>Eigen teams</h1>
+    <P>Je kunt je eigen teams veranderen doormiddel van hieronder op het team te klikken</P>
     <ul>
         <?php
         foreach ($ownTeams as $team) {
