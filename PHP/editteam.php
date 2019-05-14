@@ -17,16 +17,20 @@ $prepare->execute([
 
 $team = $prepare->fetch(PDO::FETCH_ASSOC);
 ?>
+<div class="container">
+    <div class="content">
+        <form action="logincontroller.php?id=<?=$id?>" method="post">
+            <input type="hidden" name="type" value="edit">
+            <div class="form-group">
+                <label for="teamname">Team name</label>
+                <input type="text" name="teamname" id="teamname" value="<?=$team['teamname']?>">
+            </div>
 
-<form action="logincontroller.php?id=<?=$id?>" method="post">
-    <input type="hidden" name="type" value="edit">
-    <div class="form-group">
-        <label for="teamname">Team name</label>
-        <input type="text" name="teamname" id="teamname" value="<?=$team['teamname']?>">
+            <input type="submit" value="Edit Team">
+        </form>
     </div>
+</div>
 
-    <input type="submit" value="Edit Team">
-</form>
 
 <?php
 require 'footer.php';

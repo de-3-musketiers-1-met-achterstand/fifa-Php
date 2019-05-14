@@ -18,19 +18,23 @@ $prepare->execute([
 $team = $prepare ->fetch(PDO::FETCH_ASSOC);
 
 ?>
+<div class="container">
+    <div class="content">
+        <h1><?php echo htmlentities($team['teamname']); ?></h1>
 
-<h1><?php echo htmlentities($team['teamname']); ?></h1>
+        <?php
+        if ( $_SESSION['isAdmin'] ) {
+            ?>
+            <form action="logincontroller.php?id=<?=$id;?>" method="post">
+                <input type="hidden" name="type" value="delete">
+                <input type="submit" value="Delete this team">
+            </form>
+            <?php
+        }
+        ?>
 
-<?php
-if ( $_SESSION['isAdmin'] ) {
-    ?>
-    <form action="logincontroller.php?id=<?=$id;?>" method="post">
-        <input type="hidden" name="type" value="delete">
-        <input type="submit" value="Delete this team">
-    </form>
-<?php
-}
-?>
+    </div>
+</div>
 
 
 

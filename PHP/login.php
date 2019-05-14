@@ -25,9 +25,10 @@
             </div>
             <input class="button" type="submit"  value="Login">
         </form>
+        <a href="forgotpass.php">Forgot Password</a>
     </div>
 </div>
 
-    <a href="index.php">Back to homepage</a>
-    <a href="forgotpass.php">Forgot Password</a>
+
+
 <?php require 'footer.php'; ?>

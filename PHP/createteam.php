@@ -9,16 +9,19 @@
 require 'header.php';
 
 ?>
+<div class="container" >
+    <div class="content" >
+        <form action="logincontroller.php" method="post">
+            <input type="hidden" name="type" value="createteam">
+            <div class="form-group">
+                <label for="teamname">Team name</label>
+                <input type="text" name="teamname" id="teamname">
+            </div>
 
-    <form action="logincontroller.php" method="post">
-        <input type="hidden" name="type" value="createteam">
-        <div class="form-group">
-            <label for="teamname">Team name</label>
-            <input type="text" name="teamname" id="teamname">
-        </div>
-
-        <input type="submit" value="Add team">
-    </form>
+            <input type="submit" value="Add team">
+        </form>
+    </div>
+</div>
 
 
 
