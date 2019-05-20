@@ -161,23 +161,3 @@ if ($_POST['type'] == 'create-competition') {
 }
 
 
-if ($_POST['type'] == 'create-player') {
-    $playername = $_POST['playername'];
-    $created_by = $_SESSION['id'];
-    $playerteam = $_POST['playerteam'];
-    /*$p-teamname = $_POST['p-teamname'];*/
-
-    $sql = "INSERT INTO players (id, playername, playerteam, created_by ) 
-values (:id, :playername, :playerteam, :created_by)";
-
-    $prepare = $db->prepare($sql); //protect against sql injection
-    $prepare->execute([
-        ':id' => $id,
-        ':playername' => $playername,
-        ':created_by' => $created_by,
-        ':playerteam' => $playerteam
-
-    ]);
-    header('Location: index.php');
-    exit;
-}

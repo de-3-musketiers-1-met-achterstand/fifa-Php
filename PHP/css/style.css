@@ -67,11 +67,9 @@ background: gray;
 }
 /*footer*/
 footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-
-    background-color: lightgrey;
+width: 100%;
+background-color: lightgrey;
+    margin-top: 10%;
 }
 .designers{
     grid-column: 1;
