@@ -113,3 +113,71 @@ if ($_POST['type'] === 'edit') {
     header("location: index.php?msg=$msg");
     exit;
 }
+if ($_POST['type'] == 'create-competition') {
+
+
+
+    $sqldelete = "DELETE FROM matches";
+    $querydel = $db->query($sqldelete); //verzoek naar de database, voer sql van hierboven uit
+    $preparedel = $db->prepare($sqldelete);
+    $preparedel->execute([
+        ':id' => $team
+    ]);
+
+
+    $sql = "SELECT * FROM teams";
+    $query = $db->query($sql); //verzoek naar de database, voer sql van hierboven uit
+    $teams = $query->fetchAll(PDO::FETCH_ASSOC); //multie demensionale array //alles binnenhalen
+
+    $teamsArray = array();
+
+    foreach ($teams as $team) {
+        array_push($teamsArray, $team['teamname']);
+    }
+
+    $arrLength = count($teamsArray);
+
+
+    for ( $i = 0; $i < $arrLength; $i++)
+    {
+        for ($x = 0; $x < count($teamsArray); $x++ )
+        {
+            if($teamsArray[0] !== $teamsArray[$x])
+            {
+                $matchsql = "INSERT INTO matches (id, team1, team2 )
+                        values (:id,:team1 , :team2)";
+                $prepare = $db->prepare($matchsql);
+                $prepare->execute([
+                    ':id' => $id,
+                    ':team1' => $teamsArray[0],
+                    ':team2' => $teamsArray[$x]
+                ]);
+            }
+        }
+        array_shift($teamsArray);
+    }
+    //exit;
+    header("Location: matches.php");
+}
+
+
+if ($_POST['type'] == 'create-player') {
+    $playername = $_POST['playername'];
+    $created_by = $_SESSION['id'];
+    $playerteam = $_POST['playerteam'];
+    /*$p-teamname = $_POST['p-teamname'];*/
+
+    $sql = "INSERT INTO players (id, playername, playerteam, created_by ) 
+values (:id, :playername, :playerteam, :created_by)";
+
+    $prepare = $db->prepare($sql); //protect against sql injection
+    $prepare->execute([
+        ':id' => $id,
+        ':playername' => $playername,
+        ':created_by' => $created_by,
+        ':playerteam' => $playerteam
+
+    ]);
+    header('Location: index.php');
+    exit;
+}
