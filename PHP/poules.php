@@ -5,7 +5,9 @@ $sql = "SELECT * FROM teams"; //gewoon een opslag van een string die je later ga
 $query = $db->query($sql); //verzoek naar de database, voer sql van hierboven uit
 $teams = $query->fetchAll(PDO::FETCH_ASSOC); //multie demensionale array //alles binnenhalen
 
-
+$sql = "SELECT * FROM matches";
+$query = $db->query($sql);
+$matches = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <!--
@@ -42,6 +44,15 @@ $teams = $query->fetchAll(PDO::FETCH_ASSOC); //multie demensionale array //alles
             </form>
         </div>
     </div>
+
+<?php
+foreach ($matches as $match){
+    $teamfilter1 = htmlentities($match['team1']);
+    $teamfilter2 = htmlentities($match['team2']);
+
+echo "<li>$teamfilter1 - $teamfilter2</li>";
+}
+?>
 
 
 </main>
