@@ -77,13 +77,7 @@ $ownTeams = $query->fetchAll(PDO::FETCH_ASSOC);
                 </ul>
 
 
-                <div class="poules-button">
-                    <?php if ($_SESSION['userid']) {
-                        echo "<h3>Poules Pagina</h3>";
-                        echo "<button><a href='poules.php'>Ga naar de poules!</a></button>";
-                    }
-                    ?>
-                </div>
+ 
 
                 <?php
                 }
