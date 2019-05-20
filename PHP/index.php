@@ -24,6 +24,12 @@ $ownTeams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <h1>Voetbal Toernooi</h1>
             </div>
             <div class="home-items">
+                <h2>Info</h2>
+                <p>lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                    lorem ipsum dolor sit amet
+                    lorem ipsum dolor sit amet
+                    lorem ipsum dolor sit amet</p>
+
                 <p>U kunt hier één toernooi volgen tussen meerdere teams.
                     De mogelijkheid is er ook om teams aan te maken, resultaten krijg je ook.
                     Maar de resultaten krijg je pas wanneer je een account heb en ingelogt bent.
@@ -51,7 +57,9 @@ $ownTeams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <ul>
                     <?php
                     foreach ($teams as $team) {
-                        echo "<li><a href='detailteam.php?id=${team['teamid']}'>${team['teamname']}</a></li>";
+                        $teamfilter = htmlentities($team['teamname']);
+
+                        echo "<li><a href='detailteam.php?id=${team['teamid']}'>$teamfilter  </a></li>";
                     }
                     ?>
                 </ul>
@@ -62,7 +70,8 @@ $ownTeams = $query->fetchAll(PDO::FETCH_ASSOC);
                 <ul>
                     <?php
                     foreach ($ownTeams as $team) {
-                        echo "<li><a href='editteam.php?id=${team['teamid']}'>${team['teamname']}</a></li>";
+                        $teamfilter = htmlentities($team['teamname']);
+                        echo "<li><a href='editteam.php?id=${team['teamid']}'>$teamfilter</a></li>";
                     }
                     ?>
                 </ul>
