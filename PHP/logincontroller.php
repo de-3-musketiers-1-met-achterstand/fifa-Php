@@ -157,7 +157,7 @@ if ($_POST['type'] == 'create-competition') {
         array_shift($teamsArray);
     }
     //exit;
-    header("Location: matches.php");
+    header("Location: poules.php");
 }
 
 
