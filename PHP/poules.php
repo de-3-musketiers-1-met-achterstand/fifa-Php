@@ -40,7 +40,14 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
                 <input type='hidden' name='type' value='create-competition'>
                 <label for="wedstrijdschema"><b>Maak een Wedstrijdschema</b></label>
 
-                <button type="submit">Wedstrijdschema Maken</button>
+
+                <div class="make-matches">
+                    <?php if ($_SESSION['isAdmin']) {
+                        echo  "<h3>Matches Pagina</h3>";
+                        echo "<button type='submit'>Wedstrijd Maken</button>";
+                    }
+                    ?>
+                </div>
             </form>
         </div>
     </div>
