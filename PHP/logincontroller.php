@@ -148,7 +148,7 @@ if ($_POST['type'] == 'create-competition') {
                         values (:id,:team1 , :team2)";
                 $prepare = $db->prepare($matchsql);
                 $prepare->execute([
-     bftrqa4e513               ':id' => $id,
+                    ':id' => $id,
                     ':team1' => $teamsArray[0],
                     ':team2' => $teamsArray[$x]
                 ]);
