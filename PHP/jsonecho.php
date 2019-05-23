@@ -8,15 +8,23 @@
 
 require 'config.php';
 
-$sql = "SELECT * FROM teams";
-$query = $db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-header('Content-Type: application/json');
+            if(isset($_GET['key'])){
 
-echo json_encode($teams);
+                if($_GET['key'] === 'hDMc4pFrC3')
+                {
+                    header('Content-Type: application/json');
+                    $sql = "SELECT * FROM teams";
+                    $query = $db->query($sql);
+                    $teams = $query->fetchAll(PDO::FETCH_ASSOC);
+                    echo 'test';
 
 
+                    echo json_encode($teams);
+                }
+            }
 
+}
 
 

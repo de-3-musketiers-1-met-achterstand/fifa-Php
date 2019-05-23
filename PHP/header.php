@@ -21,8 +21,8 @@ require 'config.php';
             <?php
             if ($_SESSION['userid']) {
                 ?>
-                <a href="logout.php">Log out</a>
                 <a href="poules.php">Poules</a>
+                <a href="logout.php">Log out</a>
                 <?php
             }
             else{

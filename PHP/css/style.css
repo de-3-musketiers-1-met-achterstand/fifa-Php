@@ -65,6 +65,14 @@ padding-left: 12%;
 .login-page a:hover{
 background: gray;
 }
+.matches{
+    grid-column: 2;
+    text-align: center;
+    text-decoration: none;
+}
+.competition{
+    grid-column: 2;
+}
 /*footer*/
 footer {
 width: 100%;

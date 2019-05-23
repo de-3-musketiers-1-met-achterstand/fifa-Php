@@ -31,9 +31,9 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
 -->
 
 
-
+<main class="container">
     <div class="competition">
-        <div class="container">
+
             <h4>Maak een wedstrijdschema:</h4>
 
             <form action="logincontroller.php" method="post">
@@ -49,17 +49,19 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
                     ?>
                 </div>
             </form>
-        </div>
+
     </div>
+<div class="matches">
+    <?php
+    foreach ($matches as $match){
+        $teamfilter1 = htmlentities($match['team1']);
+        $teamfilter2 = htmlentities($match['team2']);
 
-<?php
-foreach ($matches as $match){
-    $teamfilter1 = htmlentities($match['team1']);
-    $teamfilter2 = htmlentities($match['team2']);
+        echo "<li>$teamfilter1 - $teamfilter2</li>";
+    }
+    ?>
+</div>
 
-echo "<li>$teamfilter1 - $teamfilter2</li>";
-}
-?>
 
 
 </main>
