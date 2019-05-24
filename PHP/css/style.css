@@ -12,11 +12,17 @@ a{
     grid-template-columns: 20% 60% 20%;
 }
 html{
-    background: whitesmoke;
+
 
 }
 header{
   background: lightgray;
+}
+body{
+    background-image: url('https://picsum.photos/id/1058/1920/1080');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 .nav{
     display: flex;
