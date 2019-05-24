@@ -158,6 +158,33 @@ if ($_POST['type'] == 'create-competition') {
     }
     //exit;
     header("Location: poules.php");
+
+}
+if ( $_POST['type'] === 'result' ) {
+    if(!isset($_SESSION['isAdmin'])){
+        header('Location: index.php?error=nopermission');
+    }
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+    }
+    else {
+        header('Location: poules.php');
+    }
+
+    $out = $_POST['out'];
+    $home = $_POST['home'];
+
+    $score = $out . "-" . $home;
+
+
+    $sql = "UPDATE matches SET result = :result WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':result' => $score,
+        ':id' => $id
+    ]);
+
+    header('Location: poules.php?success=result');
 }
 
 

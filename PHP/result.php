@@ -1,25 +1,28 @@
 <?php
 require 'header.php';
 
-$sql = "SELECT result FROM matches";
-$query = $db->query($sql);
-$teams = $query->fetchAll(PDO::FETCH_ASSOC);
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+else {
+    header('Location: poules.php');
+}
 ?>
 
-<div class="container">
-    <div class="result-input">
-        <h3>Resultaten</h3>
-        <?php
-        if ( $_SESSION['isAdmin'] ) {
-            ?>
 
-            <?php
-        }
-        ?>
-
+<form action="logincontroller.php?id=<?=$id?>" method="post">
+    <input type="hidden" name="type" value="result">
+    <div class="form-group">
     </div>
-</div>
 
+    <div class="form-group">
+        <label for="out">uit</label>
+        <input type="number" name="out" id="out">
+        <label for="home">thuis</label>
+        <input type="number" name="home" id="home">
+    </div>
+    <input class="button" type="submit"  value="verzenden">
+</form>
 <?php
 require 'footer.php';?>
 

@@ -72,7 +72,7 @@ background: gray;
 }
 .matches{
     grid-column: 2;
-    text-align: center;
+    text-align: left;
     text-decoration: none;
 }
 .competition{
