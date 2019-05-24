@@ -1,11 +1,4 @@
 <?php
-/*
-*
- * Created by PhpStorm.
- * User: Aaron
- * Date: 1-4-2019
- * Time: 09:28
- */
 if ($_SERVER['REQUEST_METHOD'] != 'POST'){
     header('Location: index.php');
     exit;
@@ -148,6 +141,24 @@ if($_POST['type'] == 'delete-player'){
     $msg = 'Player deleted';
     header( "Location: index.php?msg=$msg");
     exit;
+}
+
+if($_POST['type'] == 'insert-result1') {
+    $id = $_GET['id'];
+    $sql = "UPDATE result1 FROM matches WHERE id = :result1";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'id' => $id
+    ]);
+}
+
+if($_POST['type'] == 'insert-result2') {
+    $id = $_GET['id'];
+    $sql = "UPDATE result2 FROM matches WHERE id = :result2";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        'id' => $id
+    ]);
 }
 
 

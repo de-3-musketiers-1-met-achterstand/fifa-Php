@@ -10,6 +10,7 @@ $query = $db->query($sql);
 $matches = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+<<<<<<< Updated upstream
 <!--
 <main>
     <div class="container">
@@ -35,10 +36,15 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="competition">
 
             <h4>Maak een wedstrijdschema:</h4>
+=======
+
+    <div class="competition">
+        <div class="container">
+            <h4>Wedstrijdschema:</h4>
+>>>>>>> Stashed changes
 
             <form action="logincontroller.php" method="post">
                 <input type='hidden' name='type' value='create-competition'>
-                <label for="wedstrijdschema"><b>Maak een Wedstrijdschema</b></label>
 
 
                 <div class="make-matches">
@@ -62,6 +68,38 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
     ?>
 </div>
 
+<<<<<<< Updated upstream
+=======
+    if ($_SESSION['isAdmin']) {
+        echo "<li><a href='result.php'>$teamfilter1 - $teamfilter2</a></li>";
+
+        ?> <form action="fifaController.php" method="post">
+            <div class='form-group'>
+                <label for="result">Uitslag</label>
+                <input type="hidden" value="insert-result1">
+                <input type="text" name="result" id="result1">
+            </div>
+
+            <input type="submit" value="Uitslag">
+        </form>
+
+        <form action="fifaController.php" method="post">
+            <div class='form-group'>
+                <label for="result">Uitslag</label>
+                <input type="hidden" value="insert-result2">
+                <input type="text" name="result" id="result2">
+            </div>
+
+            <input type="submit" value="Uitslag">
+        </form>
+<?PHP
+    }
+    else {
+    echo "<li>$teamfilter1 - $teamfilter2</li>";
+    }
+}
+?>
+>>>>>>> Stashed changes
 
 
 </main>
