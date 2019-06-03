@@ -3,26 +3,39 @@ require 'header.php';
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
+
+    $sql = "SELECT * FROM matches WHERE id = $id";
+    $query = $db->query($sql);
+    $match = $query->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+
 }
 else {
     header('Location: poules.php');
 }
+
 ?>
 
+<div class="container">
+    <div class="login-page">
+        <form action="logincontroller.php?id=<?=$id?>" method="post">
+            <input type="hidden" name="type" value="result">
+            <div class="form-group">
+            </div>
 
-<form action="logincontroller.php?id=<?=$id?>" method="post">
-    <input type="hidden" name="type" value="result">
-    <div class="form-group">
+            <div class="form-group">
+                <label for="out"><?=$match['id']?></label>
+                <input type="number" name="out" id="out">
+                <label for="home"><?=$match['id']?></label>
+                <input type="number" name="home" id="home">
+            </div>
+            <input class="button" type="submit"  value="verzenden">
+        </form>
     </div>
+</div>
 
-    <div class="form-group">
-        <label for="out">uit</label>
-        <input type="number" name="out" id="out">
-        <label for="home">thuis</label>
-        <input type="number" name="home" id="home">
-    </div>
-    <input class="button" type="submit"  value="verzenden">
-</form>
 <?php
 require 'footer.php';?>
 

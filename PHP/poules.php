@@ -34,10 +34,10 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
         $teamfilter1 = htmlentities($match['team1']);
         $teamfilter2 = htmlentities($match['team2']);
         if ($_SESSION['isAdmin']){
-            echo "<li><a href='result.php?id=".$match['id']."'>$teamfilter1 - $teamfilter2 ".$match['result']."</a></li>";
+            echo "<li><a href='result.php?id=".$match['id']."'>$teamfilter1 - $teamfilter2 ".$match['result1']."-".$match['result2']."</a></li>";
         }
         else{
-            echo "<li>$teamfilter1 - $teamfilter2 ".$match['result']."</li>";
+            echo "<li>$teamfilter1 - $teamfilter2 ".$match['result1']-$match['result2']."</li>";
         }
 
 

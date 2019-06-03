@@ -177,12 +177,20 @@ if ( $_POST['type'] === 'result' ) {
     $score = $out . "-" . $home;
 
 
-    $sql = "UPDATE matches SET result = :result WHERE id = :id";
+    $sql = "UPDATE matches SET result1 = :result WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':result' => $score,
+        ':result' => $out,
         ':id' => $id
     ]);
+
+    $sql = "UPDATE matches SET result2 = :result WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':result' => $home,
+        ':id' => $id
+    ]);
+
 
     header('Location: poules.php?success=result');
 }
