@@ -1,4 +1,4 @@
-<?php
+ <?php
 require 'config.php';
 if ($_SERVER['REQUEST_METHOD'] !== 'POST' ) {
     header('location: index.php?error=wrongpage');
@@ -161,6 +161,7 @@ if ($_POST['type'] == 'create-competition') {
 
 }
 if ( $_POST['type'] === 'result' ) {
+    $ref = $_POST['referee'];
     if(!isset($_SESSION['isAdmin'])){
         header('Location: index.php?error=nopermission');
     }
@@ -191,8 +192,14 @@ if ( $_POST['type'] === 'result' ) {
         ':id' => $id
     ]);
 
-
     header('Location: poules.php?success=result');
+
+    $sql = "UPDATE matches SET referee = :referee WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+            ':referee'  => $ref,
+            ':id'       => $id
+    ]);
 }
 
 

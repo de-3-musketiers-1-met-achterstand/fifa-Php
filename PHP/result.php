@@ -28,10 +28,15 @@ else {
             <div class="form-group">
                 <label for="out"><?=$match['id']?></label>
                 <input type="number" name="out" id="out">
+
                 <label for="home"><?=$match['id']?></label>
                 <input type="number" name="home" id="home">
+
+                <label for="referee"><?=$match['id']?></label>
+                <input type="text"  name="referee"  id="referee">
             </div>
-            <input class="button" type="submit"  value="verzenden">
+
+            <input class="button" type="submit"  value="Verzenden">
         </form>
     </div>
 </div>
