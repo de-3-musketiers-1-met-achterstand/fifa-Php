@@ -10,10 +10,18 @@ require 'config.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
-            if(isset($_GET['key'])){
+    $key = $_GET['key'];
+    $sql = "SELECT * FROM tokens WHERE token = :token";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':token' => $key
+    ]);
+    $return = $prepare->fetchAll(2);
 
-                if($_GET['key'] === 'hDMc4pFrC3')
-                {
+            if($return){
+
+
+
                     header('Content-Type: application/json');
                     $sql = "SELECT * FROM teams";
                     $query = $db->query($sql);
@@ -22,9 +30,7 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 
                     echo json_encode($teams);
-                }
+
             }
 
 }
-
-

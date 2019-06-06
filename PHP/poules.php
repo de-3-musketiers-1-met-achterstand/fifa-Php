@@ -11,8 +11,8 @@ $matches = $query->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 <main class="container">
-    <div class="competition">
-        <div class="matches">
+    <div class="matches">
+
 
             <form action="logincontroller.php" method="post">
                 <input type='hidden' name='type' value='create-competition'>
