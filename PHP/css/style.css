@@ -74,10 +74,11 @@ background: gray;
     grid-column: 2;
     text-align: left;
     text-decoration: none;
+    background: lightgrey;
+    margin-top: 20px;
+    padding: 20px;
 }
-.competition{
-    grid-column: 2;
-}
+
 /*footer*/
 footer {
 width: 100%;
