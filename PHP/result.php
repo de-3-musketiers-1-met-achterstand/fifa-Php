@@ -10,7 +10,7 @@ if(isset($_GET['id'])) {
 
 
 
-var_dump($match);
+
 }
 else {
     header('Location: poules.php');
@@ -26,13 +26,14 @@ else {
             </div>
 
             <div class="form-group">
-                <label><?=$match['team1']?></label>
+                <label>team 1</label>
                 <label for="out"><?=$match['id']?></label>
-                <input type="number" name="out" id="out">
-                <label><?=$match['team2']?></label>
+                <input type="number" name="out" id="out"><br>
+                <label>team 2</label>
                 <label for="home"><?=$match['id']?></label>
-                <input type="number" name="home" id="home">
+                <input type="number" name="home" id="home"><br>
 
+                <label>Scheids </label>
                 <label for="referee"><?=$match['id']?></label>
                 <input type="text"  name="referee"  id="referee">
             </div>
